@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: rgb(16, 16, 16);
+}
+
+@media (min-width: 768px) {
+    body, html {
+        overflow: hidden; /* Evita scroll en PC = ONE PAGE DESIGN*/
+    }
+}
+
+.container {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    grid-template-rows: repeat(2, 1fr); /* Dos filas */
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+/* Colores de fondo */
+.hero { background: #232323; }
+.proyectos { background: #232323; }
+.sobre-mi { background: #232323; }
+.contacto { background: #232323; }
+
+/* Proyectos en grid */
+.grid {
+    display: flex;
+    gap: 10px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.profilephoto {
+    width: 15rem;
+    border-radius: 50%;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espaciado entre habilidades */
+    justify-content: center; /* Centrado en pantallas grandes */
+}
+
+.skill {
+    background-color: rgb(18, 18, 18);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap; /* Evita que se parta el texto */
+}
