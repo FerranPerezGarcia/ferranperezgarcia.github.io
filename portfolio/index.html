@@ -6,6 +6,8 @@
     <title>Ferran Perez Garcia</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="stylesphone.css">
+    <link rel="stylesheet" href="grid-image.css">
+    
 </head>
 <body>
     <div class="container">
@@ -19,20 +21,49 @@
             <h2>Proyectos</h2>
             <div class="grid">
                 <div class="card">
-                    <img src="proyecto1.jpg" alt="Proyecto 1">
-                    <p>Juego en Unity</p>
+                    <img src="/images/McNetikRunLogoPlayStore.jpg" alt="McNetik Run">
+                    <p>McNetik Run</p>
                 </div>
-                <div class="card">
-                    <img src="proyecto2.jpg" alt="Proyecto 2">
-                    <p>Aplicación en WinUI</p>
+                <div class="card" id="eoe_modal">
+                    <img src="/images/eoe_logo.jpg" alt="Echeos of Extinction">
+                    <p>Echoes of Extinction</p>
                 </div>
             </div>
         </section>
 
+        <!--MODALES-->
+        <div id="miModalOverlay" class="modal-overlay">
+            <div id="miModalContent" class="modal-content">
+              <h2>Echeos of Extinction</h2>
+              <p>Juego FPS de Zombies</p>
+
+              <div class="grid-image-container">
+                <div class="grid-image-item">
+                  <img src="/images/eoe/eoe1.jpg" alt="Imagen 1">
+                </div>
+                <div class="grid-image-item">
+                    <img src="/images/eoe/eoe2.jpg" alt="Imagen 2">
+                </div>
+                <div class="grid-image-item">
+                    <img src="/images/eoe/eoe3.jpg" alt="Imagen 3">
+                </div>
+                <div class="grid-image-item">
+                    <img src="/images/eoe/eoe4.jpg" alt="Imagen 4">
+                </div>
+              </div>
+              <p>Itchoi <a href="https://polichester.itch.io/echoes-of-extintion">Echoes of Extinction</a></p>
+              <button id="cerrarModal">Cerrar</button>
+            </div>
+        </div>
+        <!--FIN_MODALES-->
+
         <section class="section sobre-mi">
             <h2>Sobre Mí</h2>
+            <br>
             <p>Soy un desarrollador apasionado por la programación y el diseño de videojuegos.</p>
+            <br>
             <h3>Habilidades</h3>
+            <br>
             <div class="skills-container">
                 <span class="skill">Unity</span>
                 <span class="skill">Kotlin</span>
@@ -55,10 +86,12 @@
         </section>
 
         <section class="section contacto">
-            <h2>Contacto</h2>
-            <p>Email: <a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a></p>
+            <h2>Contacto</h2><br>
+            <p>Email: <a href="mailto:ferranperez2001@gmail.com">ferranperez2001@gmail.com</a></p><br>
             <img src="./icons/linkedin.png" class="contactIcon">
         </section>
     </div>
+
+    <script src="popups.js"></script>
 </body>
 </html>
