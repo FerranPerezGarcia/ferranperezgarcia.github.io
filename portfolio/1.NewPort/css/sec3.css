@@ -1,0 +1,17 @@
+.skills-container {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espaciado entre habilidades */
+    justify-content: center; /* Centrado en pantallas grandes */
+}
+.skill {
+    background-color: #b0b0b0;
+    color: #232323;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap; /* Evita que se parta el texto */
+}
