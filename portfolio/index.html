@@ -1,97 +1,144 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferran Perez Garcia</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="stylesphone.css">
-    <link rel="stylesheet" href="grid-image.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseño Responsive</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/sec1.css">
+  <link rel="stylesheet" href="css/sec2.css">
+  <link rel="stylesheet" href="css/sec3.css">
+  <style>
     
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="section hero">
-            <img src="portfolio.jpg" class="profilephoto">
-            <h1>Ferran Perez Garcia</h1>
-            <p>Desarrollador de videojuegos y aplicaciones</p>
-        </header>
 
-        <section class="section proyectos">
-            <h2>Proyectos</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="images/McNetikRunLogoPlayStore.jpg" alt="McNetik Run">
-                    <p>McNetik Run</p>
-                </div>
-                <div class="card" id="eoe_modal">
-                    <img src="images/eoe_logo.jpg" alt="Echeos of Extinction">
-                    <p>Echoes of Extinction</p>
-                </div>
-            </div>
-        </section>
-
-        <!--MODALES-->
-        <div id="miModalOverlay" class="modal-overlay">
-            <div id="miModalContent" class="modal-content">
-              <h2>Echeos of Extinction</h2>
-              <p>Juego FPS de Zombies</p>
-
-              <div class="grid-image-container">
-                <div class="grid-image-item">
-                  <img src="images/eoe/eoe1.jpg" alt="Imagen 1">
-                </div>
-                <div class="grid-image-item">
-                    <img src="images/eoe/eoe2.jpg" alt="Imagen 2">
-                </div>
-                <div class="grid-image-item">
-                    <img src="images/eoe/eoe3.jpg" alt="Imagen 3">
-                </div>
-                <div class="grid-image-item">
-                    <img src="images/eoe/eoe4.jpg" alt="Imagen 4">
-                </div>
-              </div>
-              <p>Itchoi <a href="https://polichester.itch.io/echoes-of-extintion">Echoes of Extinction</a></p>
-              <button id="cerrarModal">Cerrar</button>
-            </div>
+  <div class="container">
+    <div class="sec1">
+      <!-- Sec1 (Arriba Izquierda) -->
+      <div class="col1">
+        <img src="images/portfolio.jpg">
+        <h2 class="name">Ferran Perez Garcia</h2>
+        <p>Game Developer & Software Engineer</p>
+      </div>
+      <div class="col2">
+        <p>Girona, Spain</p>
+        <p>+34 619 51 81 01</p>
+        <a href="mailto:ferranperezcontact@gmail.com">ferranperezcontact@gmail.com</a>
+        <div class="socialmedia">
+          <a href="https://www.linkedin.com/in/ferran-perez-garcia-dev/" class="fa fa-linkedin-square"></a>
+          <!-- <a href="#" class="fa fa-github"></a> -->
+          <a href="https://www.youtube.com/@FerranPerezGarciaDev" class="fa fa-youtube-play"></a>
         </div>
-        <!--FIN_MODALES-->
-
-        <section class="section sobre-mi">
-            <h2>Sobre Mí</h2>
-            <br>
-            <p>Soy un desarrollador apasionado por la programación y el diseño de videojuegos.</p>
-            <br>
-            <h3>Habilidades</h3>
-            <br>
-            <div class="skills-container">
-                <span class="skill">Unity</span>
-                <span class="skill">Kotlin</span>
-                <span class="skill">Blender</span>
-                <span class="skill">Unreal Engine</span>
-                <span class="skill">Godot</span>
-                <span class="skill">Substance Painter</span>
-                <span class="skill">Python</span>
-                <span class="skill">WinUI</span>
-                <span class="skill">JavaScript</span>
-                <span class="skill">HTML & CSS</span>
-                <span class="skill">C</span>
-                <span class="skill">C++</span>
-                <span class="skill">C#</span>
-                <span class="skill">SQL</span>
-                <span class="skill">MongoDB</span>
-                <span class="skill">Firebase</span>
-                <span class="skill">Android Studio</span>
-            </div>
-        </section>
-
-        <section class="section contacto">
-            <h2>Contacto</h2><br>
-            <p>Email: <a href="mailto:ferranperez2001@gmail.com">ferranperez2001@gmail.com</a></p><br>
-            <img src="./icons/linkedin.png" class="contactIcon">
-        </section>
+        <button>My Resume</button>
+      </div>
     </div>
+    <div class="sec2"><h2>Projects</h2>
+      <div class="projects">
+        <a class="project-container"> <!--MCNETIK RUN-->
+          <video autoplay loop muted playsinline>
+            <source src="videos/mcnr.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+          <div class="project-title">
+            McNetik Run
+          </div>
+          <div class="project-info">
+            <i class="fa-brands fa-unity"></i>
+            <span style="margin-left: 5%;"></span>
+            <i class="fa-solid fa-user"></i> 1
+            <span style="margin-left: 5%;"></span>
+            <i class="fa-solid fa-clock"></i> In Progress
+            <span style="margin-left: 5%;"></span>
+            <i class="fa-brands fa-google-play"></i>
+          </div>
+        </a>
 
-    <script src="popups.js"></script>
+        <a href="/pages/echoes-of-extintion.html" class="project-container">
+          <video autoplay loop muted playsinline>
+            <source src="videos/eoe.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+          <div class="project-title">
+            Echoes of Extintion
+          </div>
+          <div class="project-info">
+            <i class="fa-brands fa-unity"></i>
+            <span style="margin-left: 5%;"></span>
+            <i class="fa-solid fa-users"></i> 6
+            <span style="margin-left: 5%;"></span>
+            <i class="fa-solid fa-clock"></i> 3 Months
+            <span style="margin-left: 5%;"></span>
+            <i class="fa fa-windows" aria-hidden="true"></i>
+          </div>
+        </a>
+
+        <a href="/pages/echoes-of-extintion.html" class="project-container">
+          <video autoplay loop muted playsinline>
+            <source src="videos/eoe.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+          <div class="project-title">
+            Echoes of Extintion
+          </div>
+          <div class="project-info">
+            <i class="fa-brands fa-unity"></i>
+            <span style="margin-left: 5%;"></span>
+            <i class="fa-solid fa-users"></i> 6
+            <span style="margin-left: 5%;"></span>
+            <i class="fa-solid fa-clock"></i> 4 Months
+            <span style="margin-left: 5%;"></span>
+            <i class="fa fa-windows" aria-hidden="true"></i>
+          </div>
+        </a>
+
+        <a href="/pages/echoes-of-extintion.html" class="project-container">
+          <video autoplay loop muted playsinline>
+            <source src="videos/eoe.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+          <div class="project-title">
+            Echoes of Extintion
+          </div>
+          <div class="project-info">
+            <i class="fa-brands fa-unity"></i>
+            <span style="margin-left: 5%;"></span>
+            <i class="fa-solid fa-users"></i> 6
+            <span style="margin-left: 5%;"></span>
+            <i class="fa-solid fa-clock"></i> 4 Months
+            <span style="margin-left: 5%;"></span>
+            <i class="fa fa-windows" aria-hidden="true"></i>
+          </div>
+        </a>
+
+      </div>
+    </div>
+    <div class="sec3">
+      <h2>Technical Skills</h2>
+      <div class="skills-container">
+        <span class="skill">Unity</span>
+        <span class="skill">Kotlin</span>
+        <span class="skill">Blender</span>
+        <span class="skill">Unreal Engine</span>
+        <span class="skill">Godot</span>
+        <span class="skill">Substance Painter</span>
+        <span class="skill">Python</span>
+        <span class="skill">WinUI</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">HTML & CSS</span>
+        <span class="skill">C</span>
+        <span class="skill">C++</span>
+        <span class="skill">C#</span>
+        <span class="skill">SQL</span>
+        <span class="skill">MongoDB</span>
+        <span class="skill">Firebase</span>
+        <span class="skill">Android Studio</span>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

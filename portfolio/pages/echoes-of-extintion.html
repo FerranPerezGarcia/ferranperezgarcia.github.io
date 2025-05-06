@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/project-columns.css">
+    <link rel="stylesheet" href="../css/text-block.css">
+    <title>Echoes of Extintion</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+        <div class="col1">
+            <h1>Ferran Perez Garcia</h1>
+        </div>
+        <div class="col2">
+            <div class="socialmedia">
+                <a href="#" class="fa fa-linkedin-square"></a>
+                <a href="#" class="fa fa-github"></a>
+                <a href="#" class="fa fa-youtube-play"></a>
+            </div> 
+            <button>My Resume</button>
+        </div>
+    </header>
+    <main class="main-content">
+        <!-- <section class="project-header"> -->
+        <section class="text-block">
+            <h1 style="color: white;">Echoes of Extinction</h1>
+            <video autoplay loop muted playsinline>
+                <source src="../videos/eoe.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+        </section>
+
+        <div class="project-columns">
+          <section class="project-info">
+              <h1>Project Info</h1>
+              <p><i class="fa-solid fa-user"></i> Role: Game Programmer</p>
+              <p><i class="fa-solid fa-users"></i> Team Size: 6</p>
+              <p><i class="fa-solid fa-clock"></i> Time: 3 Months</p>
+              <p><i class="fa-solid fa-screwdriver-wrench"></i> Technologies: Unity, C#, Blender</p>
+          </section>
+      
+          <section class="itchio-link">
+              <iframe frameborder="0" src="https://itch.io/embed/2494236" width="100%" height="167">
+                <a href="https://polichester.itch.io/echoes-of-extintion">Echoes of Extinction by Polichester</a>
+            </iframe>
+          </section>
+        </div>
+
+        <section class="text-block">
+          <h1>Introduction</h1>
+          <p><em>Echoes of Extinction</em> was a project born from the video game development degree at the University of Girona, as part of a course focused on game engines. We were a group of six students and decided to develop a first-person zombie shooter. Each team member was responsible for different aspects of the game, and I personally chose to take on the task of AI development. I already had experience working with Unity's navigation meshes (NavMesh), as well as implementing state machines synchronized with animations for better control of zombie behavior.</p>
+        </section>
+
+        <section class="text-block">
+          <h1>Zombie Mechanics (AI)</h1>
+          <p>At first glance, it might seem like this mechanic simply involved using Unity's NavMesh and calling it a day. However, the system went far beyond just placing a 3D model and assigning it a target.</p>
+      
+          <h2>Visual Design vs. Behavior</h2>
+          <p>The zombie system could be divided into two main components:</p>
+          <ul>
+            <li><strong>Visual aesthetics</strong></li>
+            <li><strong>Behavior</strong></li>
+          </ul>
+      
+          <h2>Visual Aesthetics</h2>
+          <p>Due to the limited time available, we decided to use free assets instead of creating models and animations from scratch. We aimed for a realistic visual style, avoiding low-poly or cartoon-like models, which significantly reduced our available options.</p>
+      
+          <h3>First problem with free assets: high poly models</h3>
+          <p>Many free zombie models had extremely high polygon counts, some reaching up to 100,000 triangles. This was unmanageable for performance, especially when spawning more than 20 zombies at once. I used Blender’s <strong>Decimate</strong> modifier and retopology plugins to reduce each model to about 5,000 triangles, allowing 20 optimized zombies to match the cost of a single original one.</p>
+      
+          <p>To save time on animations, I used <strong>Mixamo</strong> to obtain pre-rigged animations. This let me skip the entire rigging process and get animated models into Unity quickly.</p>
+      
+          <p>I also created visual variety by recoloring clothes and applying different textures, resulting in four distinct zombie variants for each zombie model.</p>
+      
+          <h2>Behavior (Mechanics)</h2>
+          <p>The AI was based on Unity’s NavMesh system, but included much more than basic pathfinding.</p>
+          <p>Before I implemented the base zombie behavior, a teammate will work on a <strong>zombie boss</strong> that could spit toxic projectiles. Since both shared some logic but differed in others, we applied good software architecture practices and structured the code as follows:</p>
+      
+          <ul>
+            <li><code>Zombie</code> (base class)</li>
+            <li><code>ZombieBoss</code> (inherits from <code>Zombie</code>)</li>
+          </ul>
+      
+          <p>Key methods included:</p>
+          <ul>
+            <li><code>Update()</code>: State machine logic</li>
+            <li><code>Die()</code>: Triggers a random death animation</li>
+            <li><code>Attack()</code>: Plays a random attack animation and detects collisions with players or doors. For the boss, this launches a projectile.</li>
+            <li><code>TakeDamage()</code>: Reduces health, plays damage animation, and pauses navigation momentarily</li>
+          </ul>
+
+          <p>All behaviors were connected to Unity’s Animator Controller using parameters and transitions.</p>
+          <h2>Class Diagram</h2>
+          <p>This UML diagram shows the relationship between the base <code>Zombie</code> class and the derived <code>ZombieBoss</code> class:</p>
+          <img src="../images/eoe/eoe_UML.png" alt="UML class diagram of Zombie and ZombieBoss" style="display: block; margin: 0 auto;">
+          
+      
+          <h2>Design Inspiration and Gameplay Decisions</h2>
+          <p>I drew inspiration from <em>Call of Duty</em> zombies. I made zombies always aware of the player’s location, even from across the map. This constant tension created exciting moments when enemies grouped up in chokepoints like staircases or doors.</p>
+      
+          <p>Zombies were also able to attack closed doors. To implement this, I modified our door GameObjects to communicate their state (open or closed) when a zombie entered their trigger. If open, the zombie passed through. If closed, it would stop and attack until the door was destroyed.</p>
+      
+          <p>When baking the NavMesh, we didn’t mark doors as obstacles, so zombies still considered them part of the optimal path. This design encouraged aggression and tension, keeping players on their toes.</p>
+        </section>
+    </main>
+</div>
+
+    
+</body>
+</html>
