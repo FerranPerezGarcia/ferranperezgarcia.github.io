@@ -52,14 +52,14 @@ body, html {
 
 
 /* Evita scroll en PC = ONE PAGE DESIGN*/
-@media (min-width: 768px) {
+@media (min-width: 1250) {
     body, html {
         overflow: hidden; 
     }
 }
 
   /* Estilos responsivos para móviles */
-  @media (max-width: 768px) {
+  @media (max-width: 1250px) {
     .container {
       display: flex;
       flex-direction: column;
