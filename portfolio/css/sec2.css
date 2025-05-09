@@ -21,13 +21,10 @@
     margin: 10px;
 }
 
-<<<<<<< HEAD:portfolio/css/sec2.css
 a{
     text-decoration: none;
 }
 
-=======
->>>>>>> origin/main:portfolio/1.NewPort/css/sec2.css
 .project-container:hover{
  transform: scale(1.08);
  background-color: #e9e9e9;
