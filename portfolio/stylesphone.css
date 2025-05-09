@@ -1,0 +1,33 @@
+@media (max-width: 768px) {
+    body, html {
+        overflow: auto; /* Permitir scroll en móviles */
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card img {
+        width: 80%;
+        height: auto;
+    }
+
+    .profilephoto {
+        width: 10rem;
+    }
+
+    .skills-container {
+        justify-content: flex-start; /* Alineación izquierda en móviles */
+    }
+    
+    .skill {
+        width: auto; /* Se ajusta al contenido */
+    }
+}
