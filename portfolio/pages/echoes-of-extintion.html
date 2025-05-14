@@ -28,7 +28,7 @@
     <main class="main-content">
         <!-- <section class="project-header"> -->
         <section class="text-block">
-            <h1 style="color: white;">Echoes of Extinction</h1>
+            <h1 style="color: white;">🧟 Echoes of Extinction</h1>
             <video autoplay loop muted playsinline>
                 <source src="../videos/eoe.mp4" type="video/mp4">
                 Tu navegador no soporta el video.
@@ -57,17 +57,17 @@
         </section>
 
         <section class="text-block">
-          <h1>Zombie Mechanics (AI)</h1>
+          <h1>🧟 Zombie Mechanics (AI)</h1>
           <p>At first glance, it might seem like this mechanic simply involved using Unity's NavMesh and calling it a day. However, the system went far beyond just placing a 3D model and assigning it a target.</p>
       
           <h2>Visual Design vs. Behavior</h2>
           <p>The zombie system could be divided into two main components:</p>
           <ul>
-            <li><strong>Visual aesthetics</strong></li>
-            <li><strong>Behavior</strong></li>
+            <li><strong>🎨 Visual aesthetics</strong></li>
+            <li><strong>🧠 Behavior</strong></li>
           </ul>
       
-          <h2>Visual Aesthetics</h2>
+          <h2>🎨 Visual Aesthetics</h2>
           <p>Due to the limited time available, we decided to use free assets instead of creating models and animations from scratch. We aimed for a realistic visual style, avoiding low-poly or cartoon-like models, which significantly reduced our available options.</p>
       
           <h3>First problem with free assets: high poly models</h3>
@@ -77,7 +77,7 @@
       
           <p>I also created visual variety by recoloring clothes and applying different textures, resulting in four distinct zombie variants for each zombie model.</p>
       
-          <h2>Behavior (Mechanics)</h2>
+          <h2>🧠 Behavior (Mechanics)</h2>
           <p>The AI was based on Unity’s NavMesh system, but included much more than basic pathfinding.</p>
           <p>Before I implemented the base zombie behavior, a teammate will work on a <strong>zombie boss</strong> that could spit toxic projectiles. Since both shared some logic but differed in others, we applied good software architecture practices and structured the code as follows:</p>
       
@@ -95,7 +95,7 @@
           </ul>
 
           <p>All behaviors were connected to Unity’s Animator Controller using parameters and transitions.</p>
-          <h2>Class Diagram</h2>
+          <h3>Class Diagram</h3>
           <p>This UML diagram shows the relationship between the base <code>Zombie</code> class and the derived <code>ZombieBoss</code> class:</p>
           <img src="../images/eoe/eoe_UML.png" alt="UML class diagram of Zombie and ZombieBoss" style="display: block; margin: 0 auto;">
           

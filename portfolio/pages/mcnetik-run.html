@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/project-columns.css">
+    <link rel="stylesheet" href="../css/text-block.css">
+    <title>McNetik Run</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+        <div class="col1">
+            <h1>Ferran Perez Garcia</h1>
+        </div>
+        <div class="col2">
+            <div class="socialmedia">
+              <a href="https://www.linkedin.com/in/ferran-perez-garcia-dev/" class="fa fa-linkedin-square"></a>
+              <!-- <a href="#" class="fa fa-github"></a> -->
+              <a href="https://www.youtube.com/@FerranPerezGarciaDev" class="fa fa-youtube-play"></a>
+            </div> 
+            <button>My Resume</button>
+        </div>
+    </header>
+    <main class="main-content">
+        <!-- <section class="project-header"> -->
+        <section class="text-block">
+            <h1 style="color: white;">McNetik Run</h1>
+            <video autoplay loop muted playsinline>
+                <source src="../videos/mcnr.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+        </section>
+
+        <div class="project-columns">
+          <section class="project-info">
+              <h1>Project Info</h1>
+              <p><i class="fa-solid fa-user"></i> Role: Game Developer</p>
+              <p><i class="fa-solid fa-users"></i> Team Size: 1</p>
+              <p><i class="fa-solid fa-clock"></i> Time: In Progress</p>
+              <p><i class="fa-solid fa-screwdriver-wrench"></i> Technologies: Unity, C#, Firebase, Blender, Substance Painter</p>
+          </section>
+      
+          <!-- <section class="itchio-link">
+              <iframe frameborder="0" src="https://itch.io/embed/2494236" width="100%" height="167">
+                <a href="https://polichester.itch.io/echoes-of-extintion">Echoes of Extinction by Polichester</a>
+            </iframe>
+          </section> -->
+        </div>
+
+        <section class="text-block">
+          <h1>Introduction</h1>
+          <p><em>McNetik Run</em> was born as a solo university project for the 3D Character Design subject, where the main goal was to model, texture, and animate a robot. I was getting tired of creating projects that were only meant to be graded and then forgotten. At that time, I had endless runner mechanics on my mind, so I decided to turn my character into the protagonist of a real game.</p>
+          <p>The result is McNetik Run, a 3D endless runner where the goal is to dodge obstacles and achieve the highest possible score. Inspired by the success of Subway Surfers, the game features the classic three-lane structure with swipe-based controls: swipe left or right to change lanes, swipe up to jump. However, I wanted the movement to make sense for the character.</p>   
+          <h2>🤖 Who is McNetik?</h2>
+          <p>McNetik is a robot with a single wheel instead of legs, and magnetic arms powered by electromagnetism. Crouching didn't really fit this design, so I replaced that mechanic with a special ability: using his electromagnet to open locked electric doors.</p>
+          <h2>🎭 Visual & Narrative Context</h2>
+          <p>The setting is a giant spaceship, visually inspired by Star Wars interiors — long, seemingly endless hallways. The story is simple: McNetik is caught vandalizing and has to flee through the corridors as fast as possible.</p>
+          <h2>🧱 Obstacles</h2>
+          <ul>
+            <li><strong>Electric Doors</strong> Can be opened by swiping down, but only when close enough to trigger them.</li>
+            <li><strong>Explosive Crates</strong> Must be dodged by switching lanes.</li>
+            <li><strong>Land Mines</strong> Can be avoided by jumping or changing lanes.</li>
+          </ul>
+
+          <h2>⚡ Power-ups</h2>
+          <ul>
+            <li><strong>Nuclear Battery</strong> Temporarily gives McNetik full electromagnet power, destroying obstacles in his path.</li>
+            <li><strong>Magnet Power</strong> Attracts nearby coins.</li>
+            <li><strong>X2 Multiplier</strong> Doubles all coins collected during a limited time.</li>
+          </ul>
+        </section>
+
+        <section class="text-block">
+          <h1>🧪 v0.0.1 (Development Log)</h1>
+          <p>The first thing I did was open Unity… and then I thought: "Now what?". I decided to start with the fundamentals. A game like this is not a game unless the player can interact. So I focused first on implementing the core controls — swipe-based input in the 4 directions.</p>
+          
+          <h2>🎮 Swipe Controls</h2>
+          <ul>
+            <li><strong>Swipe Left / Right:</strong> This allows the player to switch between lanes. The world consists of three logical lanes, and the player should not be able to move outside of them.
+              <p>To manage this, I created an array with three float values:</p>
+              <code>[SerializeField] float[] lanePositions = { -2, 0, 2 };</code>
+              <p>This array can be modified from the Unity Inspector thanks to SerializeField. The values represent the X positions of the three lanes. Since this is an endless runner, the player doesn’t move forward — instead, the world moves toward the player to simulate motion and optimize performance.
+              <br>I also track the current lane with an integer:</p>
+              <code>int currentLane = 1;</code>
+              <p>When the player swipes left, currentLane is decremented (as long as it’s greater than 0); swiping right increments it (as long as it's less than lanePositions.Length - 1). This also keeps the system flexible in case I ever want to add more lanes in the future (although I probably won’t, haha).</p>
+            </li>
+            <li><strong>Swipe Up:</strong> Swiping up causes the player to jump, but only if grounded, to prevent double jumps or jumping mid-air.</li>
+            <li><strong>Swipe Down:</strong> Swiping down activates McNetik’s electromagnetic ability to open locked electric doors — but only when within trigger range, to avoid activating doors that are too far away.</li>
+          </ul>
+
+          <h2>♾️ Endless Runner Effect</h2>
+          <p>The core concept of an endless runner is to simulate infinite movement without actually moving the player. The illusion is created by moving the environment toward a stationary player.</p>
+          <p>To build this system, I created a script called <code>EndlessRunnerManager.cs</code>. It manages the spawning of modular platforms and simulates movement by constantly shifting the platforms toward the player.</p>
+          <p>The environment is composed of a configurable number of platforms — currently 5, but this number can be changed. Each platform is a prefab that contains:</p>
+          <ul>
+            <li><strong>3 lane points</strong> for obstacle spawning.</li>
+            <li><strong>Nx3 grid points</strong> across the platform for placing pickups.</li>
+          </ul>
+          <p>This creates a dynamic grid for controlled obstacle and pickup generation.</p>
+          
+          <h2>📈 Difficulty Curve & Obstacle Spawning</h2>
+          <p>I implemented a progressive difficulty system:</p>
+          <ul>
+            <li><strong>Speed</strong> increases over time using an acceleration curve that eventually plateaus.</li>
+            <li><strong>Obstacles</strong> start simple and become more complex as time passes.</li>
+          </ul>
+          <p>Currently, obstacles are instantiated and destroyed, which is not ideal for performance. In a future update, I plan to replace this with an object pooling system to reuse objects from memory and optimize runtime efficiency.</p>
+        
+          <h2>💥 Collision Manager</h2>
+          <p>I developed a dedicated collision manager that handles:</p>
+          <ul>
+            <li><strong>⚡ Boost pickups</strong></li>
+            <li><strong>🪙 Coin collection</strong></li>
+            <li><strong>💀 Player death</strong></li>
+          </ul>
+          <p>Each type of boost has its own coroutine slot. This allows multiple boosts to be active at the same time, and if the player collects the same boost again, its effect resets. I chose this approach because it offers a balanced gameplay experience — simple, but powerful enough to handle overlapping effects cleanly.</p>
+
+          <h2>☁️ Firebase Integration</h2>
+          <p>To track player progress, I integrated Google Firestore (Firebase). I initially wanted to implement Google account authentication, but due to Firebase SDK incompatibilities with Unity 6, I settled for anonymous authentication.</p>
+          <p>This lets me store user-specific data per device instance:</p>
+          <ul>
+            <li><strong>High scores</strong></li>
+            <li><strong>Coins</strong></li>
+            <li><strong>(Planned) Skins & Store system</strong></li>
+          </ul>
+
+          <h2>🎨 Visuals & Art Style (Temporary)</h2>
+          <p>This version doesn't use 3D models — I focused purely on mechanics. For visuals, I used Unity's default geometric primitives (cubes, spheres, etc.) and created a custom shader that displays color variations in a checkered pattern, similar to a chessboard grid, to help visually distinguish interactive elements.</p>
+
+          <h2>🚀 Publishing on Google Play (Closed Testing)</h2>
+          <p>During this version, I also took the opportunity to set up my Google Play Developer account and begin experimenting with the publishing process.</p>
+          <p>I submitted <strong>v0.0.1 as a Closed Testing release</strong>, using it as a learning experience to understand the full publication pipeline — from uploading the build to passing Google’s review policies.</p>
+          <p>This was not just a technical step, but also an important professional milestone:</p>
+          <ul>
+            <li>I learned <strong>how to prepare and sign builds</strong> correctly for Android.</li>
+            <li>I became familiar with <strong>Google Play Console</strong> , including setting up listings, configuring countries, testers, and release tracks (internal, closed, open).</li>
+            <li>Most importantly, I gained firsthand experience with <strong>Google’s automated review and rejection system.</strong></li>
+          </ul>
+          <p>In fact, this version was rejected several times over a span of 3 days, and I had to iterate quickly to understand the causes, update metadata, adjust permissions, and recompile APKs until the release was finally accepted.</p>
+          <p>Through this process, I learned how to:</p>
+          <ul>
+            <li>Interpret rejection messages from Google (which are sometimes vague).</li>
+            <li>Comply with content and permission policies (e.g., Privacy Policy, data access declarations).</li>
+            <li>Debug issues that only appear on real Android devices or in signed builds.</li>
+          </ul>
+
+          <p>This learning curve was essential for preparing future production-ready releases. Now, I feel confident navigating the Google Play ecosystem and handling publishing challenges efficiently.</p>
+        </section>
+
+        
+    </main>
+</div>
+
+    
+</body>
+</html>
