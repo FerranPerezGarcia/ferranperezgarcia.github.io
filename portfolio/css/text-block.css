@@ -37,10 +37,9 @@ code {
     flex-wrap: wrap;
 }
 .text-block> imagenes > img{
-    /* margin: auto;
-    display: block; */
     border-radius: 60px;
     padding: 10px;
+    max-width: 100%;
 }
 
 .text-block > hr{
