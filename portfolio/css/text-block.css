@@ -30,3 +30,21 @@ code {
 .text-block > h1{
     font-size: 32px;
 }
+
+.text-block > imagenes{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.text-block> imagenes > img{
+    /* margin: auto;
+    display: block; */
+    border-radius: 60px;
+    padding: 10px;
+}
+
+.text-block > hr{
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 75%;
+}
