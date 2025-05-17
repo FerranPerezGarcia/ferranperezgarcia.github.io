@@ -104,3 +104,6 @@ code {
     color: #b0b0b0;
 }
 
+pre{
+    white-space: pre-wrap; font-size: 15px; color:aqua; background-color: #2a2a2a; border-radius: 15px; padding-top: 10px; padding-bottom: 10px;
+}

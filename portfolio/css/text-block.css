@@ -47,3 +47,7 @@ code {
     border-radius: 5px;
     width: 75%;
 }
+
+.text-block video{
+    display: block; margin: 0 auto;
+}
