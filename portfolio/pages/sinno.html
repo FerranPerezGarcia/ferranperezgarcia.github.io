@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/project-columns.css">
+    <link rel="stylesheet" href="../css/text-block.css">
+    <title>Sinno's Odyssey In The Circus</title>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Ferran Perez Garcia presents Sinno's Odyssey In The Circus, a 3D platformer developed in Unity for the 'Flip It' Game Jam 2025. This page details the game's unique gravity-inversion mechanics, development process, and lessons learned.">
+</head>
+<body>
+  <div class="container">
+    <header>
+        <div class="col1">
+            <a href="../index.html" style="text-decoration: none; color: inherit;">
+                <h1>Ferran Perez Garcia</h1>
+            </a>
+        </div>
+        <div class="col2">
+            <div class="socialmedia">
+                <a href="https://www.linkedin.com/in/ferran-perez-garcia-dev/" class="fa fa-linkedin-square"></a>
+                <a href="https://www.youtube.com/@FerranPerezGarciaDev" class="fa fa-youtube-play"></a>
+            </div> 
+            <button>My Resume</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="text-block">
+            <h1 style="color: white;">Sinno's Odyssey In The Circus</h1>
+            <video autoplay loop muted playsinline>
+                <source src="../videos/sinno.webm" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+        </section>
+
+        <div class="project-columns">
+            <section class="project-info">
+                <h1>Project Information</h1>
+                <p><i class="fa-solid fa-user"></i> Role: Solo Developer</p>
+                <p><i class="fa-solid fa-users"></i> Team Size: 1</p>
+                <p><i class="fa-solid fa-clock"></i> Duration: 2 weeks (Game Jam)</p>
+                <p><i class="fa-solid fa-screwdriver-wrench"></i> Technologies: Unity, C#, Blender, Cinemachine, A*</p>
+            </section>
+        
+            <section class="itchio-link">
+                 <iframe height="167" frameborder="0" src="https://itch.io/embed/3881554" width="552"><a href="https://ferranperezgarcia.itch.io/sinnos-odyssey-in-the-circus">Sinno&#039;s Odyssey In The Circus (Flip It Game Jam) by FerranPerezGarcia</a></iframe>
+            </section> 
+            
+        </div>
+
+        <section class="text-block">
+            <h1>Introduction and Context</h1>
+            <p><strong>Sinno's Odyssey In The Circus</strong> was my project for the <strong>Flip It Game Jam 2025</strong> by Google Developers Group, a two-week challenge to create a video game based on the theme "Flip It." Given my passion for 3D, I decided to interpret the theme as literally as possible: by <strong>inverting gravity</strong>.</p>
+            <p>The game's narrative is simple but effective: the player takes on the role of <strong>Sinno</strong>, a jester kidnapped in a circus. Thanks to magical cards that allow him to flip gravity, he must escape captivity, solving puzzles and avoiding dangers.</p>
+            <h2>The Character: Sinno</h2>
+            <p>I modeled and animated Sinno in Blender, giving him a simple yet distinctive visual style. Although I didn’t have time to texture him, the character comes to life with a basic material and a <strong>Toon Shader</strong> that fits perfectly with the game's aesthetic.</p>
+            <imagenes>
+                <img style="width: 45%" src="../images/sinno/ConcepArtSinno.jpg">
+                <img style="width: 45%" src="../images/sinno/Sinno.png">
+            </imagenes>
+        </section>
+
+        <section class="text-block">
+            <h1>Main Mechanics and Design</h1>
+            <p>The mechanics were the heart of the development, focusing on intuitive gameplay that leveraged the concept of gravity inversion.</p>
+
+            <h2>🕹️ Controls and Movement</h2>
+            <p>I used Unity's <strong>Character Controller</strong> for basic movement with WASD, jump, and acceleration. For the camera, I relied on <strong>Cinemachine</strong>, which provided a quick setup, although some details remained to be polished.</p>
+            <p>For the core gravity-flipping mechanic, I created a <strong>singleton</strong> called <code>GravityManager</code>. With this pattern, any script can access a single instance to change the gravity direction of all physics objects and the player by pressing the 'F' key.</p>
+            <p>To develop Sinno's movement, I followed a three-phase iterative process:</p>
+            <ul>
+                <li><b>Capsule Prototype:</b> I used a simple capsule to quickly validate movement, jumping, and gravity inversion mechanics.</li>
+                <li><b>Animation Tests:</b> I integrated a Mario 64 model with Mixamo animations to test animation flow and polish gameplay with techniques like Coyote Time and Input Buffer.</li>
+                <li><b>Final Version:</b> I replaced the prototype with my custom Sinno character and animations to achieve a smooth, satisfying gameplay experience.</li>
+            </ul>
+            <imagenes>
+                <img style="width: 30%" src="../images/sinno/Mov1.gif">
+                <img style="width: 30%" src="../images/sinno/Mov2.webp">
+                <img style="width: 30%" src="../images/sinno/Mov3.webp">
+            </imagenes>
+
+            <h2>🧩 Puzzles and Obstacles</h2>
+            <p>I implemented a system of <strong>box puzzles</strong> that the player can push or pull. To do this, I programmed an interaction that allows the player to move boxes (by approaching and pressing 'E') using the 'W' and 'S' keys. Pressing 'Q' releases the box.</p>
+            <p>The jam’s theme, "Flip It," inspired me to interpret gravity inversion literally as the game's core mechanic. From this concept, I designed a series of platforming and puzzle levels to give real purpose to flipping gravity. On paper, I drafted level ideas where doors were on the ceiling or where progressing required multiple gravity flips in a single level. Although I designed several levels, the jam's limited time forced me to focus only on the most important ones for the final demo.</p>
+            <imagenes>
+                <img style="width: 30%" src="../images/sinno/Levels2.jpg">
+                <img style="width: 30%" src="../images/sinno/Levels1.jpg">
+                <img style="width: 30%" src="../images/sinno/Levels3.jpg">
+            </imagenes>
+            <p>Level design started with cubes for quick prototyping and was later replaced with basic low-poly models (walls, ceilings, platforms) to create the circus environment. For bottomless falls, instead of using volumetric fog effects (not available by default in URP), I created my own effect with a particle system and a transparent cloud image.</p>
+
+            <h2>🤖 Enemy System (Not Implemented)</h2>
+            <p>Initially, I planned to use <strong>Unity NavMesh</strong> so an enemy could chase the player. However, I realized NavMesh does not work on ceilings when gravity is inverted. Therefore, I started developing a waypoint system with the <strong>A*</strong> algorithm, allowing the enemy to find the optimal path to follow the player. Although the result was promising, the jam's time constraints forced me to leave this feature unimplemented to ensure a stable release.</p>
+            <imagenes>
+                <img style="width: 45%" src="../images/sinno/AI1.png">
+                <img style="width: 45%" src="../images/sinno/AI2.gif">
+            </imagenes>
+
+            <h2>🔧 Control Polishing (Coyote Time & Input Buffer)</h2>
+            <p>While prototyping, I noticed jumps felt a bit awkward. To improve the experience, I implemented two common platforming polish techniques:</p>
+            <ul>
+                <li><strong>Coyote Time:</strong> Allows the player to jump a few milliseconds after stepping off a platform, making edge jumps feel fairer and forgiving minor mistakes.</li>
+                <li><strong>Input Buffer:</strong> Records the jump input just before the player lands. If the jump button is pressed in the air right before touching the ground, the jump executes automatically at the earliest possible moment.</li>
+            </ul>
+        </section>
+
+        <section class="text-block">
+            <h1>Lessons Learned and Technical Challenges</h1>
+            <p>Working in a Game Jam is a great exercise in time management and problem-solving. These were my biggest challenges and takeaways:</p>
+            <ul>
+                <li><strong>Bug Management in the Build:</strong> I encountered many bugs that only appeared when compiling the final Windows build but not in the Unity editor. Many were due to variables not initializing correctly when reloading scenes or in <code>Start()</code> or <code>Awake()</code>, an unexpected behavior that took time to debug.</li>
+                <li><strong>WebGL Build:</strong> I attempted to create a WebGL version for the jam but faced fullscreen issues I couldn’t solve in the limited time. In the end, I delivered only a 100% functional Windows version.</li>
+                <li><strong>Importance of Prototyping:</strong> Using a quick prototype with cubes and a temporary avatar allowed me to test core mechanics (movement, gravity, puzzles) before investing time in final art. This was crucial to identify the need for Coyote Time and Input Buffer early enough.</li>
+                <li><strong>Prioritization in Game Jams:</strong> I learned to prioritize essential features. Although the A* enemy system was almost ready, I chose not to implement it in the final version to avoid risking the game's stability—a very common pitfall in game jams.</li>
+            </ul>
+        </section>
+
+    </main>
+</div>
+</body>
+</html>
